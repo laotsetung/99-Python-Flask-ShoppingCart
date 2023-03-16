@@ -1,0 +1,288 @@
+:root {
+  --primaryColor: #f09d51;
+  --mainWhite: #eee;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --mainSpacing: 0.1rem;
+  --mainTransition: all 0.3s linear;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-width: 360px;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/*--------------- ESTILOS DA BARRA DE NAVEGAÇÃO DO TOPO ---------------*/
+    .navbar {
+      position: sticky;
+      font-size: 1.3rem;
+      font-family: 'Lobster';
+    }
+    .navbar a {
+      text-decoration: none;
+      display: block;
+      padding: 0.8rem 0.8rem;
+    }
+
+    .navbar a:hover{
+      background-color: lightgray;
+    }
+    .cart-btn {
+      position: relative;
+      cursor: pointer;
+    }
+    .cart-items {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primaryColor);
+      padding: 0 5px;
+      border-radius: 30%;
+      color: var(--mainWhite);
+    }
+
+/*--------------- FIM DO ESTILOS DA BARRA DE NAVEGAÇÃO DO TOPO ---------------*/
+
+/*--------------- IMAGEM DO HOME ---------------*/
+    .hero {
+      width: 100%;
+      text-align: center;
+    }
+    .imgHero {
+      max-width: 100%;
+      transition: opacity 0.5s;
+      position: relative;
+    }
+    .h1Hover{
+      width: 100%;
+      position: relative;
+      bottom: 10rem;
+      color: #ddd;
+    }
+/* --------------- FIM IMAGEM DO HOME ---------------*/
+
+/* --------------- PRODUTOS ---------------- */
+    .products {
+    padding: 4rem 0;
+    }
+    .section-title h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    }
+    .products-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 2rem;
+    }
+    .img-container {
+    position: relative;
+    overflow: hidden;
+    }
+    .bag-btn {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    background: var(--primaryColor);
+    border: none;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    letter-spacing: var(--mainSpacing);
+    font-weight: bold;
+    transition: var(--mainTransition);
+    transform: translateX(101%);
+    cursor: pointer;
+    }
+    .bag-btn:hover {
+    color: var(--mainWhite);
+    }
+    .fa-shopping-cart {
+    margin-right: 0.5rem;
+    }
+    .img-container:hover .bag-btn {
+    transform: translateX(0);
+    }
+    .product-img {
+        display: block;
+        width: 100%;
+        min-height: 12rem;
+        transition: var(--mainTransition);
+    }
+    .img-container:hover .product-img {
+    opacity: 0.5;
+    }
+
+    .product h3 {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+    }
+
+    .product h4 {
+    margin-top: 0.7rem;
+    letter-spacing: var(--mainSpacing);
+    color: var(--primaryColor);
+    text-align: center;
+    }
+/* --------------- FIM DOS PRODUTOS ---------------- */
+
+
+/* --------------- CARRINHO ---------------- */
+    .cart-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--mainTransition);
+    background: rgb(240, 157, 81, 0.5);
+    z-index: 2;
+    visibility: hidden;
+    }
+    .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 3;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    transform: translateX(100%);
+    }
+    .showCart {
+    transform: translateX(0);
+    }
+    .transparentBcg {
+    visibility: visible;
+    }
+    @media screen and (min-width: 768px) {
+    .cart {
+    width: 30vw;
+    min-width: 450px;
+    }
+    }
+
+    .close-cart {
+    font-size: 1.7rem;
+    cursor: pointer;
+    }
+    .cart h2 {
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: var(--mainSpacing);
+    margin-bottom: 2rem;
+    }
+/*---------- ITEM DO CARRINHO -------------------- */
+    .cart-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-column-gap: 1.5rem;
+    margin: 1.5rem 0;
+    }
+    .cart-item img {
+    width: 100px;
+    height: 100px;
+    }
+    .cart-item h4 {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+    }
+    .cart-item h5 {
+    margin: 0.5rem 0;
+    letter-spacing: var(--mainSpacing);
+    }
+    .item-amount {
+    text-align: center;
+    }
+    .remove-item {
+    color: grey;
+    cursor: pointer;
+    }
+    .fa-chevron-up,
+    .fa-chevron-down {
+    color: var(--primaryColor);
+    cursor: pointer;
+    }
+/*---------- FIM DO ITEM DO CARRINHO -------------------- */
+
+    .cart-footer {
+    margin-top: 2rem;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+    }
+    .cart-footer h3 {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    }
+
+/* --------------- FIM DO CARRINHO ---------------- */
+
+
+/* CONTATO */
+    .contato {
+    background-color: rgba(242, 228, 158, 0.862);
+    height: 42rem;
+    line-height: 0.9;
+    font-size: 18px;
+    }
+/*FIM DO CONTATO */ 
+
+/* IFRAME DE DESCRICAO E DIV */
+    .fechaDesc{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: #4f3abd;
+      opacity: 55%;
+      width: 100%;
+      display: block;
+      z-index: 5;
+      visibility: hidden;
+      height: 500px;
+    }
+
+    .divIframe{
+      /* width: 60%; */
+      /*height: 500px;*/
+      width: 300px;
+      left: 40%;
+      position: sticky;
+      top: 50px;
+      padding: 0px;
+      visibility: hidden;
+      opacity: 0%;
+      transition: opacity 0.5s;
+      z-index: 5;
+      margin: 0px;
+    }
+
+    .iframeDesc{
+      width: 100%;
+      /*height: 700px;*/
+      border: 2px rgb(102, 17, 95) dashed;
+      background-color: rgb(156, 174, 150);
+      position: sticky;
+      top: 50px;
+    }
+/* FIM DO IFRAME DE DESCRICAO E DIV */

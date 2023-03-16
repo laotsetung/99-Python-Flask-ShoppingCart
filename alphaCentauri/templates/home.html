@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/estilo.css">
+    
+    <script src="../static/js/app.js"> </script>
+
+    <title>Alpha Centauri Shop</title>
+
+</head>
+<body onload="bodyLoad()">
+  <div id="fechaDesc" class="fechaDesc" onclick="fechaDesc();"></div> 
+
+<!-- Carrinho -->
+<div class="cart-overlay">
+  <div class="cart">  
+  <span class="close-cart">
+      <img src="../static/imgs/icons/close_black_24dp.svg" alt="close">
+  </span>
+      <h2> Seu Carrinho</h2>
+      <div class="cart-content">
+          <!-- items carrinho -->
+              <div class="cart-item">
+              </div>
+          <!-- fim items carrinho -->
+      </div>
+      <div class="cart-footer">
+          <h3> Total: Æ± <span class="cart-total" id="cart-total"> 0 </span></h3>
+          <button class="clear-cart banner-btn" onclick="limpaCarrinho()">Limpar Carrinho</button>
+      </div>
+
+  </div>
+</div>
+<!-- Fim Carrinho -->
+
+<!-- NAVBAR -->
+<header>
+  <div class="container fixed-top bg-dark" style="z-index: 1; height: 4rem; padding-top: 0%; margin-top: 0%">
+    <nav class="navbar" style="padding-top: 0%; margin-top: 0%; height: 4rem;">
+      <div class="navbar justify-content-start">
+        
+      <a href="#home"> Home </a>
+      <a href="#produtos"> Produtos </a>
+      <a href="#contato"> Contato </a>
+      <a href="#sobre"> Sobre </a>
+      </div >
+      <div class="navbar">
+        
+        <div class="cart-btn" onclick="montaCarrinho(); showCart()">
+          <span class="nav-icon">
+              <img src="../static/icons/shopping_cart_azul.svg" alt="carrinho" >
+          </span>
+          <div class="cart-items">0</div>
+      </div>
+    </div>
+    </nav>
+  </div>
+</header>
+<!-- FIM DO NAVBAR -->
+
+<!-- conteudo -->
+<div id="home"></div>
+<main role="main" class="container">
+  
+  <!-- IMAGEM HOME-->
+  <div class="hero">
+    <img class="imgHero" src="../static/imgs/capa01_2.png" alt="  " >
+    <img class="imgHero" src="../static/imgs/capa02_2.png" alt="  " >
+    <img class="imgHero" src="../static/imgs/capa03_2.png" alt="  " >
+    <div class="h1Hover"><h1>Alpha Centauri Shop</h1></div>
+    </div> 
+  <!-- FIM DA IMG HOME--> 
+
+  <br>
+  <h2 style="text-align: center"> Frete Grátis para qualquer entrega até 3.3 parsec</h2>
+  <div id="produtos"></div><br><br><br><br>
+
+  <!-- descricao do produto / div que irá aparecer por cima de todo o site-->
+    <div id="divIframe" class="divIframe" style="top: 50px; position: sticky; height: 1px;">
+      <iframe src="" frameborder="0" id="iframeDesc" class="iframeDesc" scrolling="no" onload="resizeIframe()"></iframe>
+    </div>
+  <!-- fim descricao do produto -->
+
+  <!-- PRODUTOS -->
+  <section class="products" style="background-color: #aaa;">
+    <div class="section-title" style="text-align: center">
+        <h1> Nossos Produtos </h1>
+    </div>
+    <div class="products-center">
+      
+<script> limpaProdutos(); </script>
+
+{% for item in result %}
+  
+  <script>
+    id = '{{ item[0] }}';
+    img = '{{ item[5] }}';
+    valor = '{{ item[4] }}';
+    nome = '{{ item[1] }}';
+
+    salvarProdutos(id,nome,valor,img);
+
+  </script>
+
+      <!-- 1 item-->
+      <article class="product">
+        <div class="img-container">
+          <h3><b>{{ item[1] }} </b></h3>
+          <img src="../static/imgs/produtos/{{ item[5] }}" alt="product" class="product-img" onclick="abreDescricao( {{item[0]}} );">
+            <button class="bag-btn" data-id="{{ item[0] }}" id="carrin_{{ item[0] }}" onclick="addCarrinho( {{item[0]}}, event )">
+                <img src="../static/imgs/icons/shopping_cart_24dp.svg" alt=""> Adicionar ao Carrinho
+            </button>
+        </div>
+        
+        <h4 style="color: #6b1616"> Æ± {{ item[4] }}</h4>
+      </article>
+      <!-- fim 1 item-->
+  
+    {% endfor %} 
+    </div>
+  </section>
+      
+
+  <!-- FIM DA SESSAO PRODUTOS-->
+
+  <br><br>
+  <h2 style="text-align: center"> Pague suas compras com dinheiro GROX!!! </h2>
+  <div id="contato"></div><br><br><br><br><br>
+
+  <!-- CONTATO -->
+  <div class="contato">
+    <br>    
+    <h1 style="text-align: center">Contato</h1>
+      <br><br>
+        <div>
+          <p>&nbsp;&nbsp;<b>Para visitas presenciais:</b><br><br>&nbsp;&nbsp;&nbsp;&nbsp;Rume para Alpha Centauri A, que é a nossa estrela maior e mais brilhante. </p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Virar a direita na anã vermelha e seguir para Alpha Centauri B.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;No momento nossa empresa e Hospedagem ficam na orbitam desta estrela.</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Estamos no Terceiro asteroide artificial "Roxendrafulir V!".</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Setor empresarial C3, Quadrante JJ7, Bloco e2, Sala 9382!</p>
+
+          <br><br>
+          <p><b>&nbsp;&nbsp;Contato via Xdreon-P:</b>&nbsp;&nbsp;<span style="text-decoration: underline; cursor: pointer" onclick="alert('Sistema Xdreon não encontrado!')">x8K20dÇ2451!@s9!@</span> </p>
+          <br>
+          <p><b>&nbsp;&nbsp;Contato via GroxMsg :</b>&nbsp;&nbsp;<span style="text-decoration: underline; cursor: pointer">GroujwnL1239s</span></p>
+          <hr><br>
+          <p><b>&nbsp;&nbsp;Contato na Terra :</b>&nbsp;&nbsp;<span style="text-decoration: underline; cursor: pointer">flavio.lao@gmail.com</span></p>
+          <br>
+          <p><b>&nbsp;&nbsp;GitHub :</b>&nbsp;&nbsp;<a href="https://github.com/laotsetung/">laotsetung</a></p>
+
+          <div style="width: 100%; text-align: center">
+            <img src="static/imgs/contato_logo.jpg" style="width: 20%;" alt="">
+          </div>
+        </div>
+  </div>
+  <!-- FIM DA SEÇÃO CONTATO-->
+
+  <br><br>
+  <h2 style="text-align: center"> Não efetuamos devoluções!!! </h2><br>
+  <div id="sobre"></div><br>
+
+  <!-- SOBRE -->
+  <div style="background-color: rgb(238, 173, 173);">
+    <h1 style="text-align: center">Sobre</h1> <br>
+    <div style="text-align: left; margin-left: 30px; margin-right: 30px"> 
+      <h4>( Este site com a funcionalidade de <span style="text-decoration: underline"> CARRINHO DE COMPRAS </span> e <span style="text-decoration: underline"> GERENCIAMENTO DE BANCO DE DADOS</span>, faz parte do meu portifólio como programador (BACKEND) (e essa questionável FRONT-END) e o código-fonte pode ser acessado no GitHub por <span style="text-decoration: underline; cursor: pointer;">este link</span>)</h4>
+      <br><br>
+      <h2>ATENÇÃO!!!</h2>
+      <h4> Nosso site contém um sistema de propagação própria, que ao menor sinal de qualquer sistema eletrônico, o invade para uma retransmissão, 
+        conta também com uma inteligência artificial que aprende a língua nativa e faz a tradução automática do site! <br>
+        Então é necessário que você verifique se sua espécie é inteligente o suficiente e faz parte do Grupo Local de União Estelar 'Braço de Orion 2'<br>
+        Pois, detectamos ultimamente uma incrivelmente insignificante e inofensiva espécie em um sistema solar próximo, que se chamam de 'Humanos'!<br>
+        Eles são a exata definição de horrível: orgulhosos, arrogantes, egoístas, praticam a destruição do próprio planeta e se assemelham muito a um vírus, câncer ou bactéria.
+        Se você por acaso é um Humano, sai agora do nosso site, pois não entregamos para vocês, desprezíveis!!! E temos a completa certeza que a sua extinção será de grande benefício para o nosso Grupo Local de estrelas, assim como para toda a galáxia e universo!<br>
+        Por favor. Morram! :)<br><br>
+      </h4>
+
+      <br><br>
+      
+<br><br>
+
+    </div>
+  </div>
+  <!-- FIM DA SESSAO SOBRE-->
+
+</main>
+<br><br><br>
+<!-- fim do MAIN -->
+
+<!-- RODAPE -->
+  <footer style="margin: 0px; padding: 0px">
+    <div class="container bg-dark navbar justify-content-center" style="width: 100%; text-align: center; color: white;"> 
+      <a href='/admin' style="font-size: 24px" title="ADMIN"> @dmin </a>
+    </div>
+  </footer>
+<!-- FIM DO RODAPE -->
+
+  <script src="../static/js/bootstrap.min.js"></script>
+
+  <script>
+    //OBJETOS DO DOCUMENTO CRIADOS COMO CONSTANTES
+    const ifrm = document.getElementById('iframeDesc');
+    const div_ifrm = document.getElementById('divIframe');
+    const fundo = document.getElementById('fechaDesc');
+    const cartBtn = document.querySelector('.cart-btn');
+    const closeCartBtn = document.querySelector('.close-cart');
+    const clearCartBtn = document.querySelector('.clear-cart');
+    const cartDOM = document.querySelector('.cart');
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const cartItems = document.querySelector('.cart-items');
+    const cartTotal = document.querySelector('.cart-total');
+    const cartContent = document.querySelector('.cart-content');
+    const productsDOM = document.querySelector('.products-center');
+    
+    //adiciona a funcionalidade de fechar (esconder) o carrinho
+    closeCartBtn.addEventListener('click', hideCart);
+
+    var myIndex = 0;
+    carousel(); //troca de imagens
+    
+    function carousel() { //função que faz a troca continua da imagem de fundo no home
+      var i;
+      var x = document.getElementsByClassName("imgHero");
+
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}    
+      x[myIndex-1].style.display = "block";   
+      setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+
+    calcQtde(); // calcula a quantidade de produtos que esta no carrinho (armazenada na variavel local)
+
+  </script>
+
+</body>
+</html>

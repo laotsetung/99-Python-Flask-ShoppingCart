@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ver produto</title>
+    <style>
+        body {
+            margin: 30px;
+            background-color: rgb(156, 174, 150);
+        }
+
+    </style>
+</head>
+<body onload="calcula()">
+    <div style="text-align: center; width: 100%;">
+        <h1>{{ nome }}</h1>
+        <img src="../static/imgs/produtos/{{img}}" alt="" style="max-width: 300px;">
+        <div style="width: 100%;">
+            <h3>{{ desc }}</h3>
+        </div>
+        <h3>Tipo: {{ tipo }} </h3> 
+        <h2 style="color: #6b1616"> Æ±Preço: {{ valor }} </h2>
+    </div>
+    <br><br><br>
+
+
+</body>
+<script>
+    function calcula(){
+    let ifrm = document.body;
+    
+    let altura = Math.max(ifrm.clientHeight + 30, ifrm.scrollHeight + 30, ifrm.offsetHeight + 30);
+    let largura = Math.max(ifrm.clientWidth + 60, ifrm.scrollWidth + 60, ifrm.offsetWidth + 60);
+    //largura = parseInt(largura + 50)
+    //tam *= 2;
+    parent.document.getElementById('iframeDesc').style.height = altura + 'px';
+    parent.document.getElementById('divIframe').style.width = largura + 'px';
+}
+</script>
+
+</html>

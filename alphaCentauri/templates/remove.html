@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMOVER</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            font-size: 1.3rem;
+          }
+          .navbar a {
+            text-decoration: none;
+            display: block;
+            padding: 1rem 1rem;
+          }
+    
+          .navbar a:hover{
+            background-color: lightgray;
+          }
+
+          table {
+            width: 100%;
+          }
+
+          table tr {
+            border: solid black 1px;
+          }
+
+          table tr td {
+            border-right: solid black 1px;
+          }
+    </style>
+</head>
+<body>
+    <!-- barra de navegacao -->
+    <header>
+        <div class="container bg-dark fixed-top">
+            <nav class="navbar">
+                <div class="navbar justify-content-start">
+                    <a href="/admin"> ver database </a>
+                    <a href="/admin/add"> incluir novo registro </a>
+                </div>
+                <div>
+                    <a href="/"> Sair do admin/voltar para home </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+<!-- fim da barra de navegacao -->
+
+<!--  main -->
+<br><br><br><br><br>
+<main>
+    <div class="container">
+        <form method="POST" name="formRmv" id="formRmv">
+            <table>
+                <input type="hidden" name="id_1" id="id_1" value="{{result[0]}}" />
+                <input type="hidden" name="produto" id="produto" value="{{result[1]}}" />
+                <tr><td colspan="2" style="text-align: center"><div style="width: 50%; display: inline-block; background-color: rgb(185, 62, 62); height: 30px"><input type="submit" value="REMOVER" /></div><div style="width: 50%; display: inline-block; background-color: rgb(90, 172, 87)"><input type="button" value="CANCELAR" onclick="location.href='../../admin'"/></div></td></tr>
+                <tr><td> ID: </td><td> <input type="text" disabled size="5" value="{{result[0]}}" id="id" name="id"></td></tr>
+                <tr><td>Produto:</td><td><input type="text" id="produto2" name="produto2" size="50" value="{{result[1]}}" disabled></td></tr>
+                <tr><td>Descricao:</td><td><textarea id="descricao" name="descricao" rows=4 cols=100 disabled>{{result[2]}}</textarea></td></tr>
+                <tr><td>Tipo:</td><td><input type="text" id="tipo" name="tipo" value="{{result[3]}}" disabled/></td></tr>
+                <tr><td>Valor:</td><td><input type="number" min="1.00" id="valor" name="valor" step="0.01" value="{{result[4]}}" disabled/></td></tr>
+                <tr><td>Imagem:</td><td><img src="../../static/imgs/produtos/{{result[5]}}" alt=""></td></tr>
+                <tr><td><br><br></td></tr>
+                
+    
+            </table>    
+    
+        </form>
+    </div>
+
+</main>
+
+<!-- fim do main-->
+</body>
+</html>

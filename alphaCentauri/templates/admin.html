@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <style>
+        .navbar {
+            font-size: 1.3rem;
+          }
+          .navbar a {
+            text-decoration: none;
+            display: block;
+            padding: 1rem 1rem;
+          }
+    
+          .navbar a:hover{
+            background-color: lightgray;
+          }
+
+          table {
+            width: 100%;
+          }
+
+          table tr {
+            border: solid black 1px;
+          }
+
+          table tr td {
+            border-right: solid black 1px;
+          }
+    </style>
+</head>
+<body>
+    <!-- barra de navegacao -->
+    <header>
+        <div class="container bg-dark fixed-top">
+            <nav class="navbar">
+                <div class="navbar justify-content-start">
+                    <a href="/admin"> ver database </a>
+                    <a href="/admin/add"> incluir novo registro </a>
+                </div>
+                <div>
+                    <a href="/"> Sair do admin/voltar para home </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+<!-- fim da barra de navegacao -->
+
+<!--  main -->
+<br><br><br><br><br>
+<main>
+    <div class="container">
+        <table>
+            <tr style="background-color: mediumseagreen">
+                <td> ID </td>
+                <td> Produto </td>
+                <td> Descrição </td>
+                <td> Tipo </td>
+                <td> Valor </td>
+                <td> imagem </td>
+                <td> editar </td>
+                <td> remover </td>
+            </tr>
+        {% for item in result %}
+        <tr>
+            <td> {{ item[0] }}</td>
+            <td> {{ item[1] }} </td>
+            <td> {{ item[2] }} </td>
+            <td> {{ item[3] }} </td>
+            <td> {{ item[4] }} </td>
+            <td> {{ item[5] }} </td>
+            <td> <a href="/admin/edit/{{item[0]}}"> editar </a></td>
+            <td> <a href="/admin/remove/{{item[0]}}">REMOVER </a></td>
+        </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+</main>
+
+<!-- fim do main-->
+</body>
+</html>

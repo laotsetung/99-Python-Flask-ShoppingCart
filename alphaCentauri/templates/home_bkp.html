@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <title>Home</title>
+
+    <style>
+      :root{
+        --tam: -13rem;
+        --tam_font: 1rem;
+      }
+
+      body{
+        background: rgb(80,28,184);
+        height: 300vh;
+        background: linear-gradient(180deg, rgba(80,28,184,1) 0%, #be2e18 100%);
+        /*background: radial-gradient(circle, rgba(80,28,184,1) 0%, rgba(209,89,38,1) 100%);*/
+        margin: 0px; /*todo body tem uma pequena borda, isso tira esta borda*/
+      }
+
+      .nav {
+        position: fixed;
+        background-color: #222;
+        width: 100%;
+        z-index: 2;
+      }
+
+      .nav-logo{
+        color: #99b;
+        text-align: right;
+        margin-right: 1rem;
+        font-style: italic;
+        font-family: "Sofia", sans-serif;
+      }
+
+      .nav ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+      }
+  
+      .nav li {
+        float: left;
+      }
+
+      .nav a {
+        display: block; /*none(invisivel), block, inline, inline-block*/
+        color: white;
+        padding: 1rem 1rem; /* tamanho do link */
+        text-decoration: none; /*tira o sublinhado do link */
+        font-size: 1rem;
+      }
+  
+      /* Change the link color to #111 (black) on hover */
+      .nav a:hover {
+        background-color: #111;
+      }
+
+      /*CONTEUDO*/
+      .conteudo{
+        width: 100%;
+        border: #00f solid 0px;
+        text-align: center;
+        /* z-index: auto; */
+      }
+
+      .div_meio{
+        border-bottom: #f00 solid 1px;
+        width: 100%;
+        /* z-index: auto;
+        position: relative; */
+      }
+
+      .mySlides{
+        width: 100%;
+        position: relative;
+      }
+
+      .img_tit{
+        position: relative;
+        width: var(--tam);
+        bottom: 7rem;
+        left: calc(50% - 225px);
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: var(--tam_font);
+        color: #fff;
+        text-align: center;
+      }
+
+      /*FIM DO CONTEUDO*/
+
+      .btn_mid_div{
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn_mid{
+        display: inline-block;
+        background-color: #fff;
+        opacity: 50%;
+        width: 150px;
+        height: 70px;
+      }
+
+      /* --------------- Hero ---------------- */
+.hero {
+  min-height: calc(100vh - 40px);
+  /* background: url("../static/imgs/capa01_2.png") center/cover no-repeat; */
+  /* display: flex;*/ 
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  padding: 0.3rem;
+  position: relative;
+  top: -13rem;
+  width: 9rem;
+  opacity: 50%;
+  left: calc(50% - 5rem);
+}
+.banner-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1rem;
+}
+.banner-btn {
+  /*padding: 1rem 3rem;*/
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1.1rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 1px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+}
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+/* --------------- End of Hero ---------------- */
+
+    </style>
+</head>
+<body onresize="resizeMe()">
+
+    <div class="nav"> <!-- Cabeçalho -->
+      <ul >
+        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Sobre</a></li>
+        <div class="nav-logo"><img src="../static/icons/shopping_cart_black.svg" alt=""></div>
+      </ul>
+    </div> <!-- Fim do Cabeçalho -->
+
+    <!-- <div class="conteudo"> <-- Conteúdo --
+      
+      <div class="div_meio">
+
+        <div class="btn_mid_div"><a href="#produtos" class="btn_mid"> <br>PRODUTOS </a></div>
+
+          <img class="mySlides" src="../static/imgs/capa01_2.png" alt="" >
+
+          <img class="mySlides" src="../static/imgs/capa02_2.png" alt="" >
+
+          <img class="mySlides" src="../static/imgs/capa03_2.png" alt="" >
+          
+          <div class="img_tit"><h1><b> Frete Gratis para qualquer entrega até 3.3 Parsec!!! </b></h1></div>
+          <div class="img_tit"><h1><b> Pague suas compras com dinheiro GROX!!! </b></h1></div>
+          <div class="img_tit"><h1><b> Não aceitamos devoluções!!! </b></h1></div>
+
+      </div>  -->
+
+      
+        <div class="hero">
+          
+          <img class="mySlides" src="../static/imgs/capa01_2.png" alt="" >
+          <img class="mySlides" src="../static/imgs/capa02_2.png" alt="" >
+          <img class="mySlides" src="../static/imgs/capa03_2.png" alt="" >
+
+          <div class="banner">
+              <h1 class="banner-title">Alpha Centauri</h1>
+              <a class="banner-btn" href="#produtos">shop now</a>
+          </div>
+          <div class="img_tit"><b> Frete Gratis para qualquer entrega até 3.3 Parsec!!! </b></div>
+          <div class="img_tit"><b> Pague suas compras com dinheiro GROX!!! </b></div>
+          <div class="img_tit"><b> Não aceitamos devoluções!!! </b></div>      
+        </div>
+   
+
+<div id="produtos" style="text-align: center;">
+produtos
+</div>
+
+
+  </div><!-- Conteúdo -->
+
+    <div style="text-align: center"> <!-- Rodape -->
+      rodape
+    </div> <!-- Fim do rodape -->
+
+<script>
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var y = document.getElementsByClassName("img_tit");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+      y[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    y[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+  }
+
+  function resizeMe(){
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+
+    var r = document.querySelector(':root');
+    r.style.setProperty('--tam', (w * 0.2)+"rem");
+    r.style.setProperty('--tam_font', (w * 0.005)+"rem");
+    console.log(w*0.2);
+  }
+  </script>
+
+</body>
+</html>
